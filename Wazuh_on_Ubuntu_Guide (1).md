@@ -174,8 +174,7 @@ try:
 ')
 except Exception as e:
     with open('/var/ossec/logs/integrations.log', 'a') as log_f:
-        log_f.write(json.dumps({"integration": "alienvault-otx", "error": str(e)}) + '
-')
+        log_f.write(json.dumps({"integration": "alienvault-otx", "error": str(e)}) + '\n')
 
 sys.exit(0)
 ```
