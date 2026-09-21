@@ -17,7 +17,7 @@ Once Ubuntu is installed, run updates:
 sudo apt update -y && sudo apt upgrade -y
 ```
 
-Modify the file at `/etc/netplan/00-installer-config.yaml` with `sudo` or `root` access to set the static IP address to **YOUR IP ADDRESS** (change `YOUR IP ADDRESS` to your choice of static IP for your server).
+Modify the file at `/etc/netplan/00-installer-config.yaml` with `sudo` or `root` access to set the static IP address to **YOUR IP ADDRESS** (Make sure to update `YOURSTATICIP`, `CIDR`, `YOURDEFAULTGATEWAYIP`, and `YOURMACADDRESS` to your situation's information.).
 
 ```yaml
 netog@wazuhserver:/etc/netplan$ sudo cat 00-installer-config.yaml
@@ -30,7 +30,7 @@ network:
       dhcp4: false
       dhcp6: false
       addresses:
-        - (YOURSTATICIP)
+        - (YOURSTATICIP/CIDR)
       routes:
          - to: default
            via: (YOURDEFAULTGATEWAYIP)
@@ -43,9 +43,10 @@ network:
         macaddress: (YOURMACADDRESS)
       set-name: ens18
 ```
-
-Make sure to update `YOURSTATICIP`, `YOURDEFAULTGATEWAYIP`, and `YOURMACADDRESS` to your situation's information.
-
+Then apply with :
+```BASH
+sudo netplan apply
+```
 ---
 
 ## Step 2: Install Wazuh
