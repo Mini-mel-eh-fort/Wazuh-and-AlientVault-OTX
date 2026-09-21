@@ -208,6 +208,10 @@ Add this code block to the `<ossec_config>` section, replacing `YOUR_OTX_API_KEY
     <alert_format>json</alert_format>
   </integration>
 ```
+It should look something like this:
+
+![ossec config with script added](https://github.com/Mini-mel-eh-fort/Wazuh-and-AlientVault-OTX/blob/main/screenshot.png)
+
 
 ### Add Custom Wazuh Rules
 
