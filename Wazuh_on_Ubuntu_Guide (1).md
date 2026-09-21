@@ -116,7 +116,7 @@ sudo /var/ossec/framework/python/bin/python3 -c "import OTXv2; print('OTXv2 succ
 Create the Python script to be triggered when an alert fires to query AlienVault for threat intelligence:
 
 ```bash
-sudo nano /var/ossec/integrations/custom-alienvault.py
+sudo nano /var/ossec/integrations/custom-alienvault
 ```
 
 Paste the following script into the file:
@@ -181,11 +181,12 @@ sys.exit(0)
 Set strict ownership so only `root` and `wazuh` group can run the script:
 
 ```bash
-sudo chown root:wazuh /var/ossec/integrations/custom-alienvault.py
-sudo chmod 750 /var/ossec/integrations/custom-alienvault.py
+sudo chown root:wazuh /var/ossec/integrations/custom-alienvault
+sudo chmod 750 /var/ossec/integrations/custom-alienvault
 ```
 
-To verify permissions, run: `ls -l /var/ossec/integrations/custom-alienvault.py`. You should see: `-rwxr-x--- 1 root wazuh`.
+To verify permissions, run: 
+```ls -l /var/ossec/integrations/custom-alienvault`. You should see: `-rwxr-x--- 1 root wazuh```
 
 ### Configure Wazuh Manager Configuration
 
@@ -272,7 +273,7 @@ echo '{"id":"99999","data":{"srcip":"77.83.39.94"}}' | sudo tee /tmp/test_alert.
 2. **Run your python script directly passing the test alert path and your API key:**
 
 ```bash
-sudo /var/ossec/integrations/custom-alienvault.py /tmp/test_alert.json YOUR_OTX_API_KEY
+sudo /var/ossec/integrations/custom-alienvault /tmp/test_alert.json YOUR_OTX_API_KEY
 ```
 
 3. **Check for log entry:**
