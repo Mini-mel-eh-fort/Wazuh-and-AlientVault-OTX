@@ -170,8 +170,7 @@ try:
         }
         # Write the threat intelligence match to the integrations log
         with open('/var/ossec/logs/integrations.log', 'a') as log_f:
-            log_f.write(json.dumps(msg) + '
-')
+            log_f.write(json.dumps(msg) + '\n')
 except Exception as e:
     with open('/var/ossec/logs/integrations.log', 'a') as log_f:
         log_f.write(json.dumps({"integration": "alienvault-otx", "error": str(e)}) + '\n')
